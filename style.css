@@ -1,0 +1,913 @@
+@font-face {
+    font-family: "MapleStory";
+    src: url("fonts/Maplestory Light.ttf") format("truetype");
+    font-weight: 400; 
+}
+
+@font-face {
+    font-family: "MapleStory";
+    src: url("fonts/Maplestory Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --ground-level: 22vh;
+    }
+    .maple-dialog {
+        width: 92%;
+        font-size: 0.95rem;
+    }
+}
+
+body {
+    cursor: url("images/cursors/point.cur"), auto;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.body {
+    font-family: "MapleStory", system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+#audio-unlock {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    cursor: pointer;
+    background: transparent;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.initials-snow {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.initial {
+    position: absolute;
+    top: -20px;
+    font-family: "MapleStory";
+    font-size: 1.4rem;
+    color: rgba(255, 92, 138, 0.35);
+    animation: fall linear infinite;
+}
+
+.sparkle {
+    position: absolute;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    animation: sparkle 1.8s ease-in-out infinite;
+}
+
+/* Heart Confetti */
+.heart-particle {
+    position: fixed;
+    font-size: 24px;
+    pointer-events: none;
+    animation: floatUp 2.5s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-150px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Make Yes Forever feel special */
+.yes-forever-btn {
+    background: linear-gradient(135deg, #f5afc0, #fa85a6);
+    box-shadow: 0 8px 0 #e11d48;
+    animation: foreverPulse 2s infinite;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+}
+
+.yes-btn {
+    background: #7dd3fc;
+    box-shadow: 0 6px 0 #38bdf8;
+}
+
+.yes-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+
+/* Center all Screens */
+.screen {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    /* min-height: 100vh; */
+    overflow: hidden;
+    z-index: 5;
+}
+
+
+button {
+    font-family: "MapleStory";
+    letter-spacing: 0.5px;
+}
+
+/* Big start button */
+#startBtn {
+    position: relative;
+    z-index: 10;
+    font-size: 2.2rem;
+    padding: 20px 50px;
+    border-radius: 12px;
+    border: none;
+    background-color: #ff5c8a;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    pointer-events: auto;
+}
+
+#startBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+#heart-transition {
+    position: fixed;
+    inset: 0;
+    background-color: #ffb6c1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+
+#heart-transition.show {
+    opacity: 1;
+}
+
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 4s ease-in-out;
+    transform: translateY(10px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+.fade-delay-1 {
+    animation-delay: 0.1s;
+}
+
+.fade-delay-2 {
+    animation-delay: 0.3s;
+}
+
+.fade-delay-3 {
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.big-reveal {
+    font-size: 2rem;
+    animation: popIn 0.6s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes heartReveal {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes photoFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes snow {
+    from { transform: translateY(-10px); 
+    opacity: 0;
+to { transform: translateY(100vh);
+    opacity: 1;} }
+}
+
+@keyframes foreverPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+
+@keyframes bubbleFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-4px); }
+}
+
+@keyframes slowPan {
+    from { background-position: center bottom; }
+    to { background-position: center top; }
+}
+
+@keyframes maplePop {
+    0% { transform: scale(1); }
+    60% { transform: scale(1.08); }
+    100% { transform: scale(1.06); }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+@keyframes idleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes walkBob {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes leanIn {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(12px); }
+}
+
+@keyframes petalFall {
+    0% { transform: translateX(0) translateY(0) rotate(0deg); opacity: 0.9; }
+    100% {
+        transform: translateX(var(--drift)) translateY(110vh) rotate(360deg); opacity: 0;
+    }
+}
+
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    opacity: 0.6;
+    animation: snow linear infinite;
+}
+
+
+#love-note,
+#final-text {
+    display: none;
+    white-space: pre-wrap;
+    font-family: "MapleStory";
+    font-size: 1.15rem;
+    line-height: 1.65;
+}
+
+
+.fade-out {
+    opacity: 0;
+}
+
+#noBtn {
+    transition: left 0.15s ease-out, top 0.15s ease;
+}
+
+#no-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 999;
+}
+
+#no-text {
+    max-width: 320px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 3px solid #5a3b1e;
+    border-radius: 16px;
+    font-family: "MapleStory";
+    font-size: 1.05rem;
+    line-height: 1.5;
+
+    white-space: normal;
+    word-break: normal;
+    /* word-wrap: break-word; */
+    overflow-wrap: break-word;
+    overflow: visible;
+    text-align: center;
+}
+
+/* #no-overlay,
+.maple-dialog {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+} */
+
+
+.no-card {
+    position: relative;
+    animation: popIn 0.4s ease;
+}
+
+.no-face {
+    width: 220px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Speech bubble */
+.speech-bubble {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 14px 18px;
+    border-radius: 14px;
+    max-width: 260px;
+    font-family: "MapleStory";
+    font-size: 1rem;
+    box-shadow: 0 6px 0 #00000030;
+}
+
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 12px 12px 0;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+/* Heart Reveal overlay */
+#heart-reveal {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 182, 193, 0.25);
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+}
+
+
+.heart-container {
+    /* opacity: 0; */
+    position: absolute;
+    width: 260px;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-10px);
+
+    animation: heartReveal 0.8s ease-out forwards, heartPulse 3s ease-in-out infinite 1s ;
+}
+
+
+.heart {
+    width: 200px;
+    height: 180px;
+    background: #ff4d6d;
+    position: absolute;
+    transform: rotate(0deg);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 200px;
+    height: 180px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -100px;
+    left: 0;
+}
+
+.heart::after {
+    left: 100px;
+    top: 0;
+}
+
+
+.heart-content {
+    position: absolute;
+    inset: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+    width: 80%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+
+    text-align: center;
+    z-index: 2;
+}
+
+.petal {
+    position: fixed;
+    top: -40px;
+    font-size: 22px;
+    pointer-events: none;
+    opacity: 0.85;
+    animation: petalFall linear forwards;
+    z-index: 2;
+}
+
+#initials {
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease forwards;
+
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+#final-text {
+    font-size: 1.3rem;
+    max-width: 160px;
+    margin-top: 12px;
+    color: #fff;
+    white-space: normal;
+}
+
+#photo-memories img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+#photo-memories {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 20px;
+    min-height: 160px;
+}
+
+.photo-row {
+    display: flex;
+    gap: 14px;
+    margin-top: 28px;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    filter: saturate(1.05) contrast(1.05);
+}
+
+.photo-row img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+    /* Animation setup */
+    opacity: 0;
+    transform: translateY(12px);
+    animation: photoFadeIn 0.8s ease forwards;
+}
+
+.photo-row img:nth-child(1)
+{ animation-delay: 0.2s; }
+.photo-row img:nth-child(2)
+{ animation-delay: 0.5s; }
+.photo-row img:nth-child(3)
+{ animation-delay: 0.8s; }
+
+.photo-row img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+.photo-row.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+:root {
+    --pink: #ff5c8a;
+    --soft-pink: #ffd6e5;
+    --cream: #fff7eb;
+    --sky: #dff3ff;
+    --text-dark: #5a2a2a;
+    --ground-level: 18vh;
+}
+
+#start-screen {
+    background: linear-gradient(180deg, #eaf6ff, #cfe9ff);
+    overflow: hidden;
+}
+
+.ice-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.6), transparent 40%), radial-gradient(circle at 80% 60%, rgba(255, 255, 255, 0.4), transparent 45% );
+    filter: blur(30px);
+    z-index: 0;
+}
+
+#question-screen {
+    position: fixed;
+    inset: 0;
+    background-color: #0f1a2b;
+    background-image: url("images/Orbis.png");
+
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#question-screen.visible {
+    opacity: 1;
+}
+
+
+/* Styling the question text */
+#question-text {
+    background: rgba(247, 243, 243, 0.85);
+    padding: 20px 28px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    font-size: 2rem;
+    font-family: "MapleStory";
+}
+
+#final-screen {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-start;
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+    /* overflow: hidden; */
+    /* background: radial-gradient(circle at top, #f7dbe5, #eeb9c1); */
+}
+
+.maple-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    transition: opacity 0.8s ease;
+}
+
+.maple-bg.fade {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.characters {
+    position: absolute;
+    bottom: var(--ground-level);
+    left: 0;
+    right: 0;
+    width: 100%;
+    /* display: flex;
+    justify-content: center; */
+    align-items: flex-end;
+    background: transparent;
+    pointer-events: none;
+    border-radius: 10px;
+    z-index: 3;
+}
+
+.characters::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 30px;
+    bottom: 0;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.25);
+    filter: blur(4px);
+    transform: translateX(-50%);
+}
+
+
+.character {
+    position: absolute;
+    bottom: 0;
+    pointer-events: auto;
+    display: flex;
+    align-items: flex-end;
+}
+
+.character.walking {
+    animation: walkBob 0.35s steps(2) infinite;
+}
+
+.character.lean {
+    animation: leanIn 2s ease-out forwards;
+}
+
+
+.you {
+    left: 0;
+    /* bottom: -42px; */
+}
+
+.her {
+    left: 55%;
+    /* bottom: -45px; */
+}
+
+/* .you img {
+    image-rendering: auto;
+}
+
+.her img {
+    image-rendering: pixelated;
+} */
+
+
+.sprite {
+    display: flex;
+    align-items: flex-end;
+    animation: idleFloat 2.2s ease-in-out infinite; 
+    transform-origin: bottom center;
+    transform: scale(0.75);
+}
+
+.character .sprite {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+.character img {
+    display: block;
+    transform: translateY(70px);
+    image-rendering: pixelated;
+    background: transparent;
+    height: auto;
+    width: auto;
+    max-height: 160px;
+}
+
+/* .you {
+    left: 20%;
+    bottom: 42px;
+}
+
+.her {
+    right: 45%;
+    bottom: 48px;
+} */
+
+
+#dialogue-box {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    transform: translate(-50%, -50%);
+    border: 3px solid #5a3b1e;
+    border-radius: 14px;
+    padding: 14px 20px;
+    z-index: 20;
+    max-width: 420px;
+    pointer-events: auto;
+    color: #333;        
+    box-shadow: 0 6px 0 #00000030, inset 0 2px 0 #ffffffaa;
+    font-family: "MapleStory";
+    font-size: 1.25rem;
+    line-height: 1.4;
+    animation: bubbleFloat 2s ease-in-out infinite;
+}
+
+#dialogue-box::after {
+    content: "";
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 14px 14px 0;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    inset: 0;
+    background: url("images/Orbis.png") center bottom / cover no-repeat;
+    z-index: 1;
+    animation: slowPan 40s linear infinite;
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 2;
+}
+
+#final-dialog {
+    position: relative;
+    max-height: 88vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    max-width: 520px;
+    padding: 20px 26px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 3px solid #5a3b1e;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    font-family: "MapleStory";
+    color: #333;
+    line-height: 1.5;
+    z-index: 20;
+}
+
+#final-dialog::-webkit-scrollbar {
+    width: 6px;
+}
+
+#final-dialog::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+#final-dialog::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#final-dialog p {
+    margin: 0 0 14px;
+}
+
+#photo-memories {
+    margin-top: 14px;
+}
+
+.maple-dialog {
+    position: relative;
+    transform: none;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 16px 24px;
+    border: 3px solid #5a3b1e;
+    border-radius: 14px;
+    text-align: center;
+    z-index: 20;
+    max-width: 520px;
+    width: 90%;
+}
+
+.maple-dialog-inner {
+    animation: bubbleFloatY 2s ease-in-out infinite, fadeInUp 0.4s ease;
+}
+
+.maple-dialog p,
+#love-note,
+#final-text {
+    margin-left: 0;
+    padding-left: 0;
+    text-align: center;
+    text-indent: 0;
+    white-space: normal;
+}
+
+#replayBtn {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 1000;
+
+    padding: 8px 16px;
+    font-family: "MapleStory";
+    font-size: 0.95rem;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255, 214, 234, 0.95);
+    cursor: pointer;
+    box-shadow: 0 6px 0 #00000030;
+}
+
+#replayBtn:hover {
+    animation: maplePop 0.1s ease forwards;
+}
+
+.dialog-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 15;
+}
+
+button,
+a,
+input,
+label,
+select,
+textarea {
+    cursor: url("images/cursors/point.cur"), pointer;
+}
+
+#startBtn,
+#replayBtn {
+    cursor: url("images/cursors/point.cur"), pointer !important;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Day</title>
+    <link rel="preload" as="image" href="images/Orbis.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="audio-unlock"></div>
+    <div class="maple-bg">
+        <!-- Start screen -->
+        <div id="start-screen" class="screen">
+            <div class="initials-snow"></div>
+            <div class="ice-bg"></div>
+            <button id="startBtn" class="primary-btn" type="button">宝贝 ❤️</button>
+        </div>
+        
+        <!--Question Screen-->
+        <div id="question-screen" class="screen hidden">
+            <div class="scene">
+                <div class="background"></div>
+                <div class="ground"></div>
+                <div class="characters">
+                    <div id="you" class="character you">
+                        <div class="sprite">
+                        <img src="images/me.png" alt="You" />
+                        </div>
+                    </div>
+                    
+                    <div id="her" class="character her">
+                        <div class="sprite">
+                        <img src="images/babsi.png" alt="Her" />
+                        </div>
+                    </div>
+                </div>
+                <div id="dialogue-box" class="hidden">
+                    <p id="question-text">Will you be my Valentine?? 🥹🥹</p>
+                    
+                    <div id="answers" class="hidden">
+                        <button id="yesBtn" class="yes-btn">Yes ☺️</button>
+                        <button id="yesForeverBtn" class="yes-forever-btn">Yes Forever! 😁😍</button>
+                        <button id="noBtn" class="no-btn">No 😢</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Final Message Screen-->
+    <div id="final-screen" class="screen hidden">
+
+        <div id="final-dialog" class="maple-dialog">
+            <div class="maple-dialog-inner">
+                <div class="heart-display">💗💗💗💗💗</div>
+                <h1 id="final-message">Happy Valentine's Day my Love 😘😘😘</h1>
+                <p id="love-note">
+                    <!--write out my message here-->
+                    Another Valentine's day together and I wouldn't have it any other way! I'm soooooo happy and overjoyed to have someone as amazing, brilliant, absolutely breathtakingly gorgeous and kind hearted as you in my life babsi. Everyday, every hour, every minute, every momemt that goes by, I fall deeply and madly in love with you more and more. I don't think I tell you enough how much I love you! I love your smile, how it brightens up any room you're in, I love your tenacity and persistence, how you go after what you want. I love how hard working and strong you are and you might not realize it, but you inspire me everyday with your strength. I love the kindness that you radiate, from your eyes to the way you speak. You challenge me in the best way possible, I've grown and learned so much with you by my side. 
+                    I love everything about you babsi! You are the best thing to ever happen to me, I can't wait to travel the world, create new memories and experiences together. You already know it and I've known it for a long time, I want to spend the rest of my life with you my love 😘😘😘!!!
+                </p>
+                <div id="photo-memories" class="photo-row hidden">
+                    <img src="images/Disney.jpg" alt="Us1" />
+                    <img src="images/Savannah.jpg" alt="Us2" />
+                    <img src="images/Bday.jpg" alt="Us3" />
+                </div>
+            </div>
+       </div>
+        <!-- Final reveal -->
+        
+        <div id="heart-reveal" class="hidden">
+            <div class="heart-container">
+                <div class="heart"></div>
+                
+                    <div class="heart-content">
+                    <span id="initials">V + A</span>
+                    <p id="final-text" class="fade in"></p>
+                </div>
+            </div>
+         </div>
+
+    </div>
+    <!--Link JavaScript-->
+    <div id="heart-transition">❤️❤️❤️❤️❤️❤️❤️❤️❤️</div>
+    
+    <button id="replayBtn" class="dialog-next hidden">Replayyy</button>
+    <div id="no-overlay" class="hidden">
+        <div class="no-card">
+            <img src="images/no-face.png" alt="You shocked" class="no-face" />
+
+            <div class="speech-bubble">
+                <p id="no-text"></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</div>
+</body>
+</html>
