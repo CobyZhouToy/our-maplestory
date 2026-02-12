@@ -85,11 +85,21 @@ function fadeOutSound(audio, duration = 1200) {
     }, 50);
 }
 
-const audioUnlock = document.getElementById("audio-unlock");
-audioUnlock.addEventListener("click", () => {
+// const audioUnlock = document.getElementById("audio-unlock");
+// audioUnlock.addEventListener("click", () => {
+//     playSound("start");
+//     sounds.start.volume = 0.5;
+//     audioUnlock.remove(); // remove overlay forever
+// });
+
+const introOverlay = document.getElementById("intro-overlay");
+introOverlay.addEventListener("click", () => {
     playSound("start");
-    sounds.start.volume = 0.5;
-    audioUnlock.remove(); // remove overlay forever
+    introOverlay.classList.add("fade-out");
+
+    setTimeout(() => {
+        introOverlay.style.display = "none";
+    }, 800);
 });
 
 function setMapleScene(scene) {
